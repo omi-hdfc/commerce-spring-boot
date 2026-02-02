@@ -1,0 +1,115 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.ecommerce:order >-------------------------
+[INFO] Building order 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.2:run (default-cli) > test-compile @ order >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ order ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ order ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ order ---
+[INFO] skip non existing resourceDirectory /Users/OMKAR_S/ecommerce-course/order/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ order ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.2:run (default-cli) < test-compile @ order <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.2:run (default-cli) @ order ---
+[INFO] Attaching agents: []
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ 
+ :: Spring Boot ::   v4.0.2
+ :: Spring Cloud Stream ::   v5.0.0
+ :: Spring Cloud Function ::   v5.0.0
+2026-02-02T11:38:22.287+05:30  INFO 5115 --- [order-service] [           main] com.ecommerce.order.OrderApplication     : Starting OrderApplication using Java 25.0.1 with PID 5115 (/Users/OMKAR_S/ecommerce-course/order/target/classes started by OMKAR_S in /Users/OMKAR_S/ecommerce-course/order)
+2026-02-02T11:38:22.288+05:30  INFO 5115 --- [order-service] [           main] com.ecommerce.order.OrderApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-02-02T11:38:22.303+05:30  INFO 5115 --- [order-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2026-02-02T11:38:22.303+05:30  INFO 5115 --- [order-service] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=order-service, profiles=[default], label=null, version=null, state=null
+2026-02-02T11:38:22.575+05:30  INFO 5115 --- [order-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02T11:38:22.621+05:30  INFO 5115 --- [order-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2026-02-02T11:38:22.700+05:30  INFO 5115 --- [order-service] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-02-02T11:38:22.702+05:30  INFO 5115 --- [order-service] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-02-02T11:38:22.714+05:30  INFO 5115 --- [order-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=53e4bda5-2085-3ae7-8d9e-aa900a294359
+2026-02-02T11:38:22.838+05:30  INFO 5115 --- [order-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-02-02T11:38:22.842+05:30  INFO 5115 --- [order-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-02T11:38:22.842+05:30  INFO 5115 --- [order-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-02T11:38:22.861+05:30  INFO 5115 --- [order-service] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 557 ms
+2026-02-02T11:38:22.940+05:30  INFO 5115 --- [order-service] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-02T11:38:22.952+05:30  INFO 5115 --- [order-service] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-02T11:38:23.061+05:30  INFO 5115 --- [order-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-02T11:38:23.070+05:30  INFO 5115 --- [order-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-02T11:38:23.125+05:30  INFO 5115 --- [order-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cee52e2
+2026-02-02T11:38:23.126+05:30  INFO 5115 --- [order-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-02T11:38:23.141+05:30  WARN 5115 --- [order-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-02T11:38:23.153+05:30  INFO 5115 --- [order-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5433/orderdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 14.20
+	Default catalog/schema: orderdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-02T11:38:23.431+05:30  INFO 5115 --- [order-service] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-02T11:38:23.474+05:30  INFO 5115 --- [order-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02T11:38:23.503+05:30  INFO 5115 --- [order-service] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-02T11:38:23.611+05:30  WARN 5115 --- [order-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-02T11:38:23.761+05:30  INFO 5115 --- [order-service] [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'order-service.springCloudBusInput' has 1 subscriber(s).
+2026-02-02T11:38:23.941+05:30  INFO 5115 --- [order-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoints beneath base path '/actuator'
+2026-02-02T11:38:23.980+05:30  INFO 5115 --- [order-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-02-02T11:38:23.980+05:30  INFO 5115 --- [order-service] [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'order-service.errorChannel' has 1 subscriber(s).
+2026-02-02T11:38:23.981+05:30  INFO 5115 --- [order-service] [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2026-02-02T11:38:23.984+05:30  INFO 5115 --- [order-service] [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2026-02-02T11:38:23.984+05:30  INFO 5115 --- [order-service] [           main] o.s.c.s.binder.DefaultBinderFactory      : Constructing binder child context for rabbit
+2026-02-02T11:38:24.006+05:30  INFO 5115 --- [order-service] [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2026-02-02T11:38:24.009+05:30  INFO 5115 --- [order-service] [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.Cd42QpG4SpCAaAknLBtiBg, bound to: springCloudBus
+2026-02-02T11:38:24.011+05:30  INFO 5115 --- [order-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-02-02T11:38:24.033+05:30  INFO 5115 --- [order-service] [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#34a91445:0/SimpleConnection@79acb200 [delegate=amqp://guest@127.0.0.1:5672/, localPort=51408]
+2026-02-02T11:38:24.062+05:30  INFO 5115 --- [order-service] [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-244544873.springCloudBusInput.errors' has 1 subscriber(s).
+2026-02-02T11:38:24.063+05:30  INFO 5115 --- [order-service] [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-244544873.springCloudBusInput.errors' has 2 subscriber(s).
+2026-02-02T11:38:24.071+05:30  INFO 5115 --- [order-service] [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.Cd42QpG4SpCAaAknLBtiBg'
+2026-02-02T11:38:24.076+05:30  INFO 5115 --- [order-service] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
+2026-02-02T11:38:24.096+05:30  INFO 5115 --- [order-service] [           main] com.ecommerce.order.OrderApplication     : Started OrderApplication in 2.055 seconds (process running for 2.248)
+2026-02-02T11:41:26.171+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-02T11:41:26.173+05:30  INFO 5115 --- [order-service] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-02T11:41:26.186+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-02-02T11:41:26.799+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-02-02T11:41:26.801+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.Cd42QpG4SpCAaAknLBtiBg'
+2026-02-02T11:41:26.807+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'order-service.rabbit-244544873.springCloudBusInput.errors' has 1 subscriber(s).
+2026-02-02T11:41:26.808+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'order-service.rabbit-244544873.springCloudBusInput.errors' has 0 subscriber(s).
+2026-02-02T11:41:26.834+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-02-02T11:41:26.835+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'order-service.errorChannel' has 0 subscriber(s).
+2026-02-02T11:41:26.835+05:30  INFO 5115 --- [order-service] [ionShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2026-02-02T11:41:26.841+05:30  INFO 5115 --- [order-service] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02T11:41:26.843+05:30  INFO 5115 --- [order-service] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-02T11:41:26.844+05:30  INFO 5115 --- [order-service] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:05 min
+[INFO] Finished at: 2026-02-02T11:41:26+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.2:run (default-cli) on project order: Process terminated with exit code: 143 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

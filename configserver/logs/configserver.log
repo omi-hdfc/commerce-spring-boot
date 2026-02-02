@@ -1,0 +1,99 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.ecommerce:configserver >---------------------
+[INFO] Building configserver 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.2:run (default-cli) > test-compile @ configserver >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ configserver ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ configserver ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ configserver ---
+[INFO] skip non existing resourceDirectory /Users/OMKAR_S/ecommerce-course/configserver/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ configserver ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.2:run (default-cli) < test-compile @ configserver <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.2:run (default-cli) @ configserver ---
+[INFO] Attaching agents: []
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ 
+ :: Spring Boot ::   v4.0.2
+ :: Spring Cloud Stream ::   v5.0.0
+ :: Spring Cloud Function ::   v5.0.0
+2026-02-02T11:55:19.976+05:30  INFO 10455 --- [configserver] [           main] c.e.c.ConfigserverApplication            : Starting ConfigserverApplication using Java 25.0.1 with PID 10455 (/Users/OMKAR_S/ecommerce-course/configserver/target/classes started by OMKAR_S in /Users/OMKAR_S/ecommerce-course/configserver)
+2026-02-02T11:55:19.977+05:30  INFO 10455 --- [configserver] [           main] c.e.c.ConfigserverApplication            : The following 1 profile is active: "native"
+2026-02-02T11:55:20.326+05:30  INFO 10455 --- [configserver] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-02-02T11:55:20.329+05:30  INFO 10455 --- [configserver] [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-02-02T11:55:20.343+05:30  INFO 10455 --- [configserver] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=818c689f-1fe9-34b8-a43a-780378f4721a
+2026-02-02T11:55:20.444+05:30  INFO 10455 --- [configserver] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8888 (http)
+2026-02-02T11:55:20.448+05:30  INFO 10455 --- [configserver] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-02T11:55:20.448+05:30  INFO 10455 --- [configserver] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-02T11:55:20.468+05:30  INFO 10455 --- [configserver] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 478 ms
+2026-02-02T11:55:20.742+05:30  INFO 10455 --- [configserver] [           main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'configserver.springCloudBusInput' has 1 subscriber(s).
+2026-02-02T11:55:20.931+05:30  INFO 10455 --- [configserver] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 21 endpoints beneath base path '/actuator'
+2026-02-02T11:55:20.959+05:30  INFO 10455 --- [configserver] [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-02-02T11:55:20.959+05:30  INFO 10455 --- [configserver] [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'configserver.errorChannel' has 1 subscriber(s).
+2026-02-02T11:55:20.959+05:30  INFO 10455 --- [configserver] [           main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2026-02-02T11:55:20.963+05:30  INFO 10455 --- [configserver] [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2026-02-02T11:55:20.963+05:30  INFO 10455 --- [configserver] [           main] o.s.c.s.binder.DefaultBinderFactory      : Constructing binder child context for rabbit
+2026-02-02T11:55:20.983+05:30  INFO 10455 --- [configserver] [           main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2026-02-02T11:55:20.987+05:30  INFO 10455 --- [configserver] [           main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.xCKGKXbITH-YugXBxhb_Ow, bound to: springCloudBus
+2026-02-02T11:55:20.989+05:30  INFO 10455 --- [configserver] [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-02-02T11:55:21.020+05:30  INFO 10455 --- [configserver] [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#59ac77f9:0/SimpleConnection@5169db2f [delegate=amqp://guest@127.0.0.1:5672/, localPort=51614]
+2026-02-02T11:55:21.048+05:30  INFO 10455 --- [configserver] [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-439645998.springCloudBusInput.errors' has 1 subscriber(s).
+2026-02-02T11:55:21.049+05:30  INFO 10455 --- [configserver] [           main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'rabbit-439645998.springCloudBusInput.errors' has 2 subscriber(s).
+2026-02-02T11:55:21.059+05:30  INFO 10455 --- [configserver] [           main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.xCKGKXbITH-YugXBxhb_Ow'
+2026-02-02T11:55:21.064+05:30  INFO 10455 --- [configserver] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8888 (http) with context path '/'
+2026-02-02T11:55:21.080+05:30  INFO 10455 --- [configserver] [           main] c.e.c.ConfigserverApplication            : Started ConfigserverApplication in 1.262 seconds (process running for 1.445)
+2026-02-02T11:55:34.915+05:30  INFO 10455 --- [configserver] [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-02T11:55:34.916+05:30  INFO 10455 --- [configserver] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-02T11:55:34.917+05:30  INFO 10455 --- [configserver] [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-02T11:55:34.936+05:30  INFO 10455 --- [configserver] [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/order-service.yml]' via location 'file:///Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/'
+2026-02-02T11:55:45.349+05:30  INFO 10455 --- [configserver] [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/product-service.yml]' via location 'file:///Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/'
+2026-02-02T11:57:28.164+05:30  WARN 10455 --- [configserver] [nio-8888-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-02-02T11:57:29.892+05:30  WARN 10455 --- [configserver] [nio-8888-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-02-02T11:57:30.030+05:30  WARN 10455 --- [configserver] [nio-8888-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-02-02T11:57:30.603+05:30  WARN 10455 --- [configserver] [nio-8888-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-02-02T11:57:32.142+05:30  WARN 10455 --- [configserver] [nio-8888-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-02-02T11:57:37.752+05:30  WARN 10455 --- [configserver] [io-8888-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)]
+2026-02-02T12:00:00.560+05:30  INFO 10455 --- [configserver] [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/order-service.yml]' via location 'file:///Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/'
+2026-02-02T12:00:10.415+05:30  INFO 10455 --- [configserver] [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/product-service.yml]' via location 'file:///Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/'
+2026-02-02T12:00:16.720+05:30  INFO 10455 --- [configserver] [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/user-service.yml]' via location 'file:///Users/OMKAR_S/ecommerce-course/configserver/src/main/resources/config/'
+2026-02-02T12:01:52.778+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-02T12:01:52.781+05:30  INFO 10455 --- [configserver] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-02T12:01:52.794+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2026-02-02T12:01:53.564+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2026-02-02T12:01:53.565+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.xCKGKXbITH-YugXBxhb_Ow'
+2026-02-02T12:01:53.574+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'configserver.rabbit-439645998.springCloudBusInput.errors' has 1 subscriber(s).
+2026-02-02T12:01:53.576+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'configserver.rabbit-439645998.springCloudBusInput.errors' has 0 subscriber(s).
+2026-02-02T12:01:53.607+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-02-02T12:01:53.607+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'configserver.errorChannel' has 0 subscriber(s).
+2026-02-02T12:01:53.608+05:30  INFO 10455 --- [configserver] [ionShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  06:34 min
+[INFO] Finished at: 2026-02-02T12:01:53+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.2:run (default-cli) on project configserver: Process terminated with exit code: 143 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

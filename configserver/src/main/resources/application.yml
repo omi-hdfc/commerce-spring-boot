@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: configserver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file://${user.home}/ecommerce-course/configserver/src/main/resources/config
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+
+server:
+  port: 8888
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    busrefresh:
+      enabled: true
