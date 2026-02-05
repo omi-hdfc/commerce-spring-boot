@@ -1,15 +1,20 @@
 package com.ecommerce.order.services;
 
+import com.ecommerce.order.clients.ProductServiceClient;
+import com.ecommerce.order.clients.UserServiceClient;
+import com.ecommerce.order.dtos.CartResult;
+import com.ecommerce.order.dtos.ProductResponse;
+import com.ecommerce.order.dtos.UserResponse;
 import com.ecommerce.order.models.CartItem;
 import com.ecommerce.order.dtos.CartItemRequest;
 import com.ecommerce.order.repositories.CartItemRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -19,16 +24,44 @@ public class CartService {
 
 
     private final CartItemRepository cartItemRepository;
+    private final ProductServiceClient productServiceClient;
+    private final UserServiceClient userServiceClient;
 
 
-    public boolean addToCart(String userId, CartItemRequest request) {
-//        Optional<Product> productOpt = productRepository.findById(request.getProductId());
-//        if(productOpt.isEmpty())
-//            return false;
-//
-//        Product product = productOpt.get();
-//        if(product.getStockQuantity() < request.getQuantity())
-//            return false;
+    public CartResult addToCart(String userId, CartItemRequest request) {
+        // Validate user exists
+        UserResponse userResponse;
+        try {
+            userResponse = userServiceClient.getUserDetails(userId);
+        } catch (WebClientResponseException e) {
+            // User not found or other client error (4xx)
+            return CartResult.failure("User not found");
+        }
+
+        if (userResponse == null) {
+            return CartResult.failure("User not found");
+        }
+
+        // Validate product exists and is active
+        ProductResponse productResponse;
+        try {
+            productResponse = productServiceClient.getProductDetails(request.getProductId());
+        } catch (WebClientResponseException e) {
+            // Product not found or other client error (4xx)
+            return CartResult.failure("Product not found");
+        }
+
+        if(productResponse == null) {
+            return CartResult.failure("Product not found");
+        }
+
+        if(!productResponse.getActive()) {
+            return CartResult.failure("Product is not available");
+        }
+
+        if(productResponse.getStockQuantity() < request.getQuantity()) {
+            return CartResult.failure("Insufficient stock. Available: " + productResponse.getStockQuantity());
+        }
 //
 //        Optional<User> userOpt = userRepository.findById(Long.valueOf(userId));
 //
@@ -53,7 +86,7 @@ public class CartService {
 
 
         }
-        return true;
+        return CartResult.success();
 
     }
 

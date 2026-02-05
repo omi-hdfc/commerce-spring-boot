@@ -17,7 +17,12 @@
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[20,31] variable userService not initialized in the default constructor
+[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[29,9] cannot find symbol
+  symbol:   variable log
+  location: class com.ecommerce.user.controllers.UserController
+[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[35,9] cannot find symbol
+  symbol:   variable log
+  location: class com.ecommerce.user.controllers.UserController
 [ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/services/UserService.java:[51,38] cannot find symbol
   symbol:   method getFirstName()
   location: variable userRequest of type com.ecommerce.user.dto.UserRequest
@@ -90,16 +95,21 @@
 [ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/services/UserService.java:[85,21] cannot find symbol
   symbol:   method setAddress(com.ecommerce.user.dto.AddressDTO)
   location: variable response of type com.ecommerce.user.dto.UserResponse
-[INFO] 25 errors 
+[INFO] 26 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.913 s
-[INFO] Finished at: 2026-02-02T11:55:54+05:30
+[INFO] Total time:  1.012 s
+[INFO] Finished at: 2026-02-04T16:23:20+05:30
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project user: Compilation failure: Compilation failure: 
-[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[20,31] variable userService not initialized in the default constructor
+[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[29,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.ecommerce.user.controllers.UserController
+[ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/controllers/UserController.java:[35,9] cannot find symbol
+[ERROR]   symbol:   variable log
+[ERROR]   location: class com.ecommerce.user.controllers.UserController
 [ERROR] /Users/OMKAR_S/ecommerce-course/user/src/main/java/com/ecommerce/user/services/UserService.java:[51,38] cannot find symbol
 [ERROR]   symbol:   method getFirstName()
 [ERROR]   location: variable userRequest of type com.ecommerce.user.dto.UserRequest

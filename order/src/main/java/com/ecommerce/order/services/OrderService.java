@@ -1,8 +1,10 @@
 package com.ecommerce.order.services;
 
 
+import com.ecommerce.order.clients.UserServiceClient;
 import com.ecommerce.order.dtos.OrderItemDTO;
 import com.ecommerce.order.dtos.OrderResponse;
+import com.ecommerce.order.dtos.UserResponse;
 import com.ecommerce.order.models.CartItem;
 import com.ecommerce.order.models.Order;
 import com.ecommerce.order.models.OrderItem;
@@ -10,6 +12,7 @@ import com.ecommerce.order.models.OrderStatus;
 import com.ecommerce.order.repositories.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,7 +23,7 @@ import java.util.Optional;
 public class OrderService {
 
     private final CartService cartService;
-//    private final UserRepository userRepository;
+    private final UserServiceClient userServiceClient;
     private final OrderRepository orderRepository;
     public Optional<OrderResponse> createOrder(String userId) {
         //Validate for cart items
@@ -29,14 +32,18 @@ public class OrderService {
             return Optional.empty();
         }
 
-        //validate user
-//        Optional<User> userOptional =  userRepository.findById(Long.valueOf(userId));
-//        if(userOptional.isEmpty()){
-//            return Optional.empty();
-//
-//        }
-//
-//        User user = userOptional.get();
+        //validate user exists
+        UserResponse userResponse;
+        try {
+            userResponse = userServiceClient.getUserDetails(userId);
+        } catch (WebClientResponseException e) {
+            // User not found or other client error (4xx)
+            return Optional.empty();
+        }
+
+        if (userResponse == null) {
+            return Optional.empty();
+        }
 
        //calculate total price
         BigDecimal totalPrice = cartItems.stream()

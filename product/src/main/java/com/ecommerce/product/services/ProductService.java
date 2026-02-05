@@ -79,4 +79,10 @@ public class ProductService {
                 .collect(Collectors.toList());
 
     }
+
+    public Optional<ProductResponse> getProductById(String id) {
+        return productRepository.findById(Long.parseLong(id))
+                .filter(Product::getActive)
+                .map(this::mapToProductResponse);
+    }
 }

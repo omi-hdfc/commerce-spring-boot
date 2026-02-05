@@ -1,6 +1,7 @@
 package com.ecommerce.order.controllers;
 
 
+import com.ecommerce.order.dtos.CartResult;
 import com.ecommerce.order.models.CartItem;
 import com.ecommerce.order.dtos.CartItemRequest;
 import com.ecommerce.order.services.CartService;
@@ -19,11 +20,12 @@ public class CartController {
     private final CartService cartService;
 
     @PostMapping
-    public ResponseEntity<String > addToCart(@RequestHeader("X-User-Id") String userId, @RequestBody CartItemRequest request ){
-        if(!cartService.addToCart(userId, request)){
-            return ResponseEntity.badRequest().body("Product Out of Stock or User not found");
+    public ResponseEntity<String> addToCart(@RequestHeader("X-User-Id") String userId, @RequestBody CartItemRequest request) {
+        CartResult result = cartService.addToCart(userId, request);
+        if (!result.isSuccess()) {
+            return ResponseEntity.badRequest().body(result.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(result.getMessage());
     }
 
     @DeleteMapping("/item/{productId}")

@@ -16,6 +16,18 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  cloud:
+    loadbalancer:
+      enabled: true
+      retry:
+        enabled: false
+      eureka:
+        approximate-zone-from-hostname: false
+    discovery:
+      enabled: true
+      reactive:
+        enabled: false  # Disable reactive discovery client
+
 server:
   port: 8083
 
@@ -24,5 +36,31 @@ management:
       web:
         exposure:
           include: "*"
+    metrics:
+      export:
+        prometheus:
+          enabled: true
+    prometheus:
+      metrics:
+        export:
+          enabled: true
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
 
+logging:
+  file:
+    name: ./logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30

@@ -6,6 +6,9 @@ import com.ecommerce.user.dto.UserRequest;
 import com.ecommerce.user.dto.UserResponse;
 import com.ecommerce.user.services.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +17,22 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
+
 @RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
-
+//   private static Logger logger = LoggerFactory.getLogger(UserController.class);
     @GetMapping
     public ResponseEntity<List<UserResponse>> getAllUsers(){
+        log.info("Fetching all users");
         return ResponseEntity.ok(userService.fetchAllUsers());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUser(@PathVariable String id){
+        log.info("Fetching user with id: {}", id);
         return userService.FetchUser(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());

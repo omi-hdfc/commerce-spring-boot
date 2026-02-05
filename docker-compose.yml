@@ -49,3 +49,4 @@ services:
       - "15672:15672"
     networks:
       - backend
+
